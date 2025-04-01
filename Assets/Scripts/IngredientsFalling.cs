@@ -19,9 +19,8 @@ public class IngredientsFalling : MonoBehaviour
     {
         int randomIngredient = Random.Range(0, gameObjects.Length);
 
-        _randomPosition = new Vector3(Random.Range(-7f,7f), transform.position.y, Random.Range(-3f,3f));
-        _randomRotation = new Quaternion(Random.Range(-90, 90), Random.Range(-90, 90), Random.Range(-90, 90), Random.Range(-90, 90));
-        Instantiate(gameObjects[randomIngredient], _randomPosition, _randomRotation);
+        _randomPosition = new Vector3(Random.Range(-18f,18f), transform.position.y, transform.position.z);
+        Instantiate(gameObjects[randomIngredient], _randomPosition, Quaternion.identity);
     }
 
     private IEnumerator SpawnIngredients()
