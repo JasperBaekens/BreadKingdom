@@ -41,10 +41,23 @@ public class SurfacePainter : MonoBehaviour
             tempTex.SetPixel(0, 0, brushColor);
             tempTex.Apply();
 
-            // Draw at the converted position
-            Graphics.DrawTexture(new Rect(viewportPos.x * texSize, (1 - viewportPos.y) * texSize, brushSize * texSize, brushSize * texSize), tempTex);
+            // Calculate centered position
+            float brushPixelSize = brushSize * texSize;
+            float centeredX = (viewportPos.x * texSize) - (brushPixelSize / 2);
+            float centeredY = ((1 - viewportPos.y) * texSize) - (brushPixelSize / 2);
+
+            // Draw at the corrected position
+            Graphics.DrawTexture(new Rect(centeredX, centeredY, brushPixelSize, brushPixelSize), tempTex);
+
             GL.PopMatrix();
             RenderTexture.active = null;
+
+
+
+            // Draw at the converted position
+            //Graphics.DrawTexture(new Rect(viewportPos.x * texSize, (1 - viewportPos.y) * texSize, brushSize * texSize, brushSize * texSize), tempTex);
+            //GL.PopMatrix();
+            //RenderTexture.active = null;
         }
     }
 
