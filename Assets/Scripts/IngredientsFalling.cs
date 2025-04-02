@@ -5,19 +5,35 @@ public class IngredientsFalling : MonoBehaviour
 {
     [SerializeField] private GameObject[] _ingredients;
     [SerializeField] private GameObject _butter;
-    [SerializeField] private GameObject _bread;
+    [SerializeField] private GameObject[] _breadPrefabs;
+    [SerializeField] private GameObject[] _startBreadPrefabs;
 
     [SerializeField] private int _ingredientsPerRound = 10;
     [SerializeField] private float _ingredientInterval = 1f;
     [SerializeField] private float _spawnRangeX = 18f;
     [SerializeField] private float _spawnHeight = 10f;
     [SerializeField] private float _cycleRestartDelay = 2f;
+    [SerializeField] private float _ingredientSpacing = 0.05f;
 
     private int _currentIngredientCount = 0;
     private bool _spawningFinished = false;
+    private GameObject _currentBread;
     void Start()
     {
         StartCoroutine(SpawnIngredients());
+        SpawnTheBread();
+    }
+
+    private void SpawnTheBread()
+    {
+        if (_breadPrefabs.Length == 0)
+        {
+            return;
+        }
+
+        int randomBreadIndex = Random.Range(0, _startBreadPrefabs.Length);
+        Vector3 breadPosition = new Vector3(0, 0, transform.position.z); 
+        _currentBread = Instantiate(_startBreadPrefabs[randomBreadIndex], breadPosition, Quaternion.identity);
     }
 
     private void SpawnIngredient()
@@ -60,11 +76,13 @@ public class IngredientsFalling : MonoBehaviour
     {
         yield return new WaitForSeconds(_ingredientInterval);
 
+        int randomBreadIndex = Random.Range(0, _breadPrefabs.Length);
+
         Vector3 breadPosition = new Vector3(0, _spawnHeight, transform.position.z);
 
-        Instantiate(_bread, breadPosition, Quaternion.identity);
+        GameObject topBread = Instantiate(_breadPrefabs[randomBreadIndex], breadPosition, Quaternion.identity);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f); 
 
         StartCoroutine(FreezeStackedIngredients());
     }
@@ -81,7 +99,7 @@ public class IngredientsFalling : MonoBehaviour
 
         Collider breadCollider = bread.GetComponent<Collider>();
         float currentHeight = breadCollider.bounds.max.y;
-        float ingredientHeightOffset = 0.05f; // Space between ingredients
+        float ingredientHeightOffset = 0.1f; // Space between ingredients
 
         foreach (GameObject ingredient in allIngredients)
         {
@@ -92,10 +110,9 @@ public class IngredientsFalling : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.FreezeRotation;
             }
 
-            // Get ingredient's height (assuming it has a collider)
             Collider ingredientCollider = ingredient.GetComponent<Collider>();
             float ingredientHeight = ingredientCollider != null ?
-                ingredientCollider.bounds.size.y : 0.05f; // Default if no collider
+                ingredientCollider.bounds.size.y : 0.1f; 
 
             // Calculate new position
             Vector3 newPosition = new Vector3(
@@ -107,8 +124,7 @@ public class IngredientsFalling : MonoBehaviour
             ingredient.transform.position = newPosition;
             ingredient.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-            // Update current height for next ingredient
-            currentHeight = newPosition.y;// + ingredientHeight;
+            currentHeight = newPosition.y;
         }
 
         yield return new WaitForSeconds(_cycleRestartDelay);

@@ -90,11 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3778621252043343829, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
       propertyPath: m_Name
-      value: ProtoBread Variant
+      value: StartBread1
       objectReference: {fileID: 0}
     - target: {fileID: 3778621252043343829, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
       propertyPath: m_TagString
-      value: Ingredient
+      value: Bread
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -108,7 +108,7 @@ PrefabInstance:
       addedObject: {fileID: 4318694993271173423}
     - targetCorrespondingSourceObject: {fileID: 3778621252043343829, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 722648110321976030}
+      addedObject: {fileID: 905378628430650377}
   m_SourcePrefab: {fileID: 100100000, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
 --- !u!1 &112894181598339753 stripped
 GameObject:
@@ -137,12 +137,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &722648110321976030
+--- !u!114 &905378628430650377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,10 +151,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 112894181598339753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac665f10e7e2de64ea831f6c4850fbe5, type: 3}
+  m_Script: {fileID: 11500000, guid: ea9ffddd8dab65e49a846341619dfa97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heightLimit: -100
+  movementspeed: 15
+  rotationAngleMax: 45
+  tiltThreshold: 30
 --- !u!4 &2311137695295208487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1581757255395334491, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
