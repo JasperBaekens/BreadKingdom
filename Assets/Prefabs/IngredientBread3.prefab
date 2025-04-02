@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3778621252043343829, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
       propertyPath: m_Name
-      value: ProtoBread Variant 2
+      value: IngredientBread3
       objectReference: {fileID: 0}
     - target: {fileID: 3778621252043343829, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
       propertyPath: m_TagString
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac665f10e7e2de64ea831f6c4850fbe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heightLimit: -100
+  _heightLimit: -10
 --- !u!4 &2311137695295208487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1581757255395334491, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}

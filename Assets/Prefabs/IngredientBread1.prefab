@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3778621252043343829, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
       propertyPath: m_Name
-      value: ProtoBread Variant
+      value: IngredientBread1
       objectReference: {fileID: 0}
     - target: {fileID: 3778621252043343829, guid: e128ef948edc7864a9f7dd6bfcf4e4cd, type: 3}
       propertyPath: m_TagString

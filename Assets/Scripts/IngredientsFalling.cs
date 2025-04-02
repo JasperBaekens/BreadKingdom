@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class IngredientsFalling : MonoBehaviour
@@ -8,12 +9,13 @@ public class IngredientsFalling : MonoBehaviour
     [SerializeField] private GameObject[] _breadPrefabs;
     [SerializeField] private GameObject[] _startBreadPrefabs;
 
+    private List<Rigidbody> _frozenIngredients = new List<Rigidbody>();
+
     [SerializeField] private int _ingredientsPerRound = 10;
     [SerializeField] private float _ingredientInterval = 1f;
     [SerializeField] private float _spawnRangeX = 18f;
     [SerializeField] private float _spawnHeight = 10f;
     [SerializeField] private float _cycleRestartDelay = 2f;
-    [SerializeField] private float _ingredientSpacing = 0.05f;
 
     private int _currentIngredientCount = 0;
     private bool _spawningFinished = false;
@@ -89,42 +91,34 @@ public class IngredientsFalling : MonoBehaviour
 
     private IEnumerator FreezeStackedIngredients()
     {
-        yield return new WaitForSeconds(2f);
-
         GameObject bread = GameObject.FindWithTag("Bread");
         if (bread == null) yield break;
 
         GameObject[] allIngredients = GameObject.FindGameObjectsWithTag("Ingredient");
-        float gridSize = 1.0f;
-
-        Collider breadCollider = bread.GetComponent<Collider>();
-        float currentHeight = breadCollider.bounds.max.y;
-        float ingredientHeightOffset = 0.1f; // Space between ingredients
+        float currentHeight = bread.GetComponent<Collider>().bounds.max.y;
 
         foreach (GameObject ingredient in allIngredients)
         {
+            if (ingredient.transform.parent == null) continue;
+
             Rigidbody rb = ingredient.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.isKinematic = true;
-                rb.constraints = RigidbodyConstraints.FreezeRotation;
+                _frozenIngredients.Add(rb); // Store frozen rigidbodies
             }
 
-            Collider ingredientCollider = ingredient.GetComponent<Collider>();
-            float ingredientHeight = ingredientCollider != null ?
-                ingredientCollider.bounds.size.y : 0.1f; 
-
-            // Calculate new position
-            Vector3 newPosition = new Vector3(
+            ingredient.transform.position = new Vector3(
                 bread.transform.position.x,
-                currentHeight + ingredientHeightOffset,
+                currentHeight + 0.1f,
                 bread.transform.position.z
             );
+            ingredient.transform.SetParent(bread.transform);
+            if (ingredient != bread)
+            {
+                ingredient.AddComponent<PermanentFrozen>();
+            }
 
-            ingredient.transform.position = newPosition;
-            ingredient.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-
-            currentHeight = newPosition.y;
+            currentHeight += 0.2f;
         }
 
         yield return new WaitForSeconds(_cycleRestartDelay);
@@ -133,6 +127,12 @@ public class IngredientsFalling : MonoBehaviour
 
     private void RestartCycle()
     {
+        foreach(Rigidbody rb in _frozenIngredients)
+        {
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        _frozenIngredients.Clear();
         _spawningFinished = false;
         _currentIngredientCount = 0;
         StartCoroutine(SpawnIngredients());

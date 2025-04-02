@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -104,18 +105,32 @@ public class Movement : MonoBehaviour
         {
             foreach (Transform child in transform)
             {
-                Rigidbody rb = child.GetComponent<Rigidbody>();
+                if (!child.CompareTag("Ingredient") || child.GetComponent<PermanentFrozen>() != null)
+                    continue;
 
-                if (child.CompareTag("Ingredient") && rb.isKinematic != false)
+                Rigidbody rb = child.GetComponent<Rigidbody>();
+                if (rb != null && rb.isKinematic)
                 {
-                    child.SetParent(null);
-                    if (rb != null)
-                    {
-                        rb.isKinematic = false;
-                        rb.linearVelocity = Vector3.zero;
-                    }
+                    DetachIngredient(child);
                 }
             }
         }
     }
+
+    private void DetachIngredient(Transform ingredient)
+    {
+        ingredient.SetParent(null);
+        Rigidbody rb = ingredient.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.constraints = RigidbodyConstraints.None;
+            rb.AddForce(new Vector3(
+                Random.Range(-1f, 1f),
+                0,
+                Random.Range(-1f, 1f)),
+                ForceMode.Impulse);
+        }
+    }
+
 }
