@@ -104,10 +104,11 @@ public class Movement : MonoBehaviour
         {
             foreach (Transform child in transform)
             {
-                if (child.CompareTag("Ingredient"))
+                Rigidbody rb = child.GetComponent<Rigidbody>();
+
+                if (child.CompareTag("Ingredient") && rb.isKinematic != false)
                 {
                     child.SetParent(null);
-                    Rigidbody rb = child.GetComponent<Rigidbody>();
                     if (rb != null)
                     {
                         rb.isKinematic = false;

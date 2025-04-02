@@ -71,7 +71,7 @@ public class IngredientsFalling : MonoBehaviour
 
     private IEnumerator FreezeStackedIngredients()
     {
-        yield return new WaitForSeconds(2f); 
+        yield return new WaitForSeconds(2f);
 
         GameObject bread = GameObject.FindWithTag("Bread");
         if (bread == null) yield break;
@@ -79,9 +79,9 @@ public class IngredientsFalling : MonoBehaviour
         GameObject[] allIngredients = GameObject.FindGameObjectsWithTag("Ingredient");
         float gridSize = 1.0f;
 
-        
         Collider breadCollider = bread.GetComponent<Collider>();
-        float breadTopY = breadCollider.bounds.max.y;
+        float currentHeight = breadCollider.bounds.max.y;
+        float ingredientHeightOffset = 0.05f; // Space between ingredients
 
         foreach (GameObject ingredient in allIngredients)
         {
@@ -89,15 +89,26 @@ public class IngredientsFalling : MonoBehaviour
             if (rb != null)
             {
                 rb.isKinematic = true;
-                rb.constraints = RigidbodyConstraints.FreezePositionY;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
             }
 
-            
-            Vector3 localPos = ingredient.transform.position - bread.transform.position;
-            localPos.y = breadTopY + 0.05f; 
+            // Get ingredient's height (assuming it has a collider)
+            Collider ingredientCollider = ingredient.GetComponent<Collider>();
+            float ingredientHeight = ingredientCollider != null ?
+                ingredientCollider.bounds.size.y : 0.05f; // Default if no collider
 
-            ingredient.transform.position = new Vector3(bread.transform.position.x, localPos.y, bread.transform.position.z);
-            ingredient.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0); 
+            // Calculate new position
+            Vector3 newPosition = new Vector3(
+                bread.transform.position.x,
+                currentHeight + ingredientHeightOffset,
+                bread.transform.position.z
+            );
+
+            ingredient.transform.position = newPosition;
+            ingredient.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+
+            // Update current height for next ingredient
+            currentHeight = newPosition.y;// + ingredientHeight;
         }
 
         yield return new WaitForSeconds(_cycleRestartDelay);

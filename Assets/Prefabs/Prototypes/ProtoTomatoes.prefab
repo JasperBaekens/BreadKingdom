@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6288349405787256230}
   - component: {fileID: 7932957585843866277}
   - component: {fileID: 4099182281065642991}
-  - component: {fileID: 2777774438128772788}
+  - component: {fileID: 1059342647199062298}
   m_Layer: 0
   m_Name: ProtoTom1 (1)
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2777774438128772788
-CapsuleCollider:
+--- !u!65 &1059342647199062298
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,11 +104,9 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1465122738726993701
 GameObject:
@@ -121,7 +119,7 @@ GameObject:
   - component: {fileID: 2879410607916557790}
   - component: {fileID: 1367236878775546271}
   - component: {fileID: 648766258221142226}
-  - component: {fileID: 2455277524871044658}
+  - component: {fileID: 8236992036319232159}
   m_Layer: 0
   m_Name: ProtoTom1 (4)
   m_TagString: Untagged
@@ -197,8 +195,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2455277524871044658
-CapsuleCollider:
+--- !u!65 &8236992036319232159
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -214,11 +212,9 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4700885795862171000
 GameObject:
@@ -231,7 +227,7 @@ GameObject:
   - component: {fileID: 8350098560257064851}
   - component: {fileID: 9020801825255891236}
   - component: {fileID: 4620664642742282869}
-  - component: {fileID: 2236097628892381110}
+  - component: {fileID: 6580752668111300386}
   m_Layer: 0
   m_Name: ProtoTom1 (2)
   m_TagString: Untagged
@@ -307,8 +303,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2236097628892381110
-CapsuleCollider:
+--- !u!65 &6580752668111300386
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -324,11 +320,9 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5500530217059207906
 GameObject:
@@ -341,7 +335,7 @@ GameObject:
   - component: {fileID: 3318658087471674778}
   - component: {fileID: 8139893096771107714}
   - component: {fileID: 2417421498538286213}
-  - component: {fileID: 4168817218846187454}
+  - component: {fileID: 4068453284997358864}
   m_Layer: 0
   m_Name: ProtoTom1
   m_TagString: Untagged
@@ -417,8 +411,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4168817218846187454
-CapsuleCollider:
+--- !u!65 &4068453284997358864
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -434,11 +428,9 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &8614337222023596038
 GameObject:
@@ -504,7 +496,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1721572338939524918
 MonoBehaviour:
@@ -551,7 +543,7 @@ GameObject:
   - component: {fileID: 628766401570282846}
   - component: {fileID: 3458607256203630858}
   - component: {fileID: 6735508965419062699}
-  - component: {fileID: 1544679433917416748}
+  - component: {fileID: 2169650207568421608}
   m_Layer: 0
   m_Name: ProtoTom1 (3)
   m_TagString: Untagged
@@ -627,8 +619,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1544679433917416748
-CapsuleCollider:
+--- !u!65 &2169650207568421608
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -644,9 +636,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
