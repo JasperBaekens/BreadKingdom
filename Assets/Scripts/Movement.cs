@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     private Vector3 movement;
 
 
-    public float rotationspeed = 5f;
+    public float rotationAngleMax = 90f;
 
 
     private bool isJump = false;
@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
 
         Vector2 rotate = inputActions.Player.Rotate.ReadValue<Vector2>();
         //later with rigidbody
-        Vector3 RotationLocal = new Vector3(rotate.y, 0, -rotate.x) * rotationspeed;
+        Vector3 RotationLocal = new Vector3(rotate.y, 0, -rotate.x) * rotationAngleMax;
         transform.localEulerAngles = RotationLocal;
 
         //transform.Rotate((rotate.y * Time.deltaTime * rotationspeed),0, (-rotate.x * Time.fixedDeltaTime * rotationspeed));
