@@ -227,9 +227,10 @@ GameObject:
   - component: {fileID: 2924823101812804608}
   - component: {fileID: -7064678316237906503}
   - component: {fileID: 863525748675219585}
+  - component: {fileID: 1649797840279619726}
   m_Layer: 0
   m_Name: ProtoBacon
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,6 +295,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heightLimit: -10
+--- !u!65 &1649797840279619726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406550475416011161}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.595375, y: 0.4128537, z: 4.8940854}
+  m_Center: {x: -0.034873962, y: 0.11965521, z: -0.103829145}
 --- !u!1 &6519343969624228563
 GameObject:
   m_ObjectHideFlags: 0

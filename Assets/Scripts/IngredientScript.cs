@@ -4,7 +4,7 @@ using UnityEngine;
 public class IngredientScript : MonoBehaviour
 {
     [SerializeField] private float _heightLimit;
-    private FixedJoint _joint;
+    private bool _isAttached = false;
 
     void Update()
     {
@@ -13,16 +13,41 @@ public class IngredientScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        FixedJoint joint = gameObject.AddComponent<FixedJoint>();
-        joint.anchor = collision.contacts[0].point;
-        joint.connectedBody = collision.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody>();
-        joint.enableCollision = false;
+        if (_isAttached) return;
+
+        Transform parentBread = FindBread(collision.collider.transform);
+
+        if (parentBread != null)
+        {
+            AttachToBread(collision.collider.transform);
+        }
     }
 
+    private Transform FindBread(Transform collidedObject)
+    {
+        if (collidedObject.CompareTag("Bread"))
+        {
+            return collidedObject;
+        }
+        if (collidedObject.CompareTag("Ingredient"))
+        {
+            return collidedObject.root;
+        }
+        return null;
+    }
+
+    private void AttachToBread(Transform bread)
+    {
+        _isAttached = true;
+        transform.SetParent(bread);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = true;
+    }
 
     private void DestroyIfFalls()
     {
         if (transform.position.y <= _heightLimit)
-            Destroy(this.gameObject);
+            Destroy(gameObject);
     }
+
 }

@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     private float currentJumpTime = 0f;
 
     private Rigidbody Rb;
-
+    [SerializeField] private float tiltThreshold = 30f;
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -83,6 +83,30 @@ public class Movement : MonoBehaviour
 
                 Debug.Log("DeHop");
 
+            }
+        }
+
+        CheckIfTilted();
+    }
+
+    private void CheckIfTilted()
+    {
+        float tiltAngle = Vector3.Angle(transform.up, Vector3.up);
+
+        if (tiltAngle > tiltThreshold)
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.CompareTag("Ingredient"))
+                {
+                    child.SetParent(null);
+                    Rigidbody rb = child.GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        rb.isKinematic = false;
+                        rb.linearVelocity = Vector3.zero;
+                    }
+                }
             }
         }
     }
