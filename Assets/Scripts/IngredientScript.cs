@@ -5,7 +5,6 @@ public class IngredientScript : MonoBehaviour
 {
     [SerializeField] private float _heightLimit;
     private bool _isAttached = false;
-
     void Update()
     {
         DestroyIfFalls();
