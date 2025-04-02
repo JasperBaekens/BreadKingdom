@@ -10,8 +10,19 @@ public class SurfacePainter : MonoBehaviour
     private int texSize = 1024; // Resolution of the paint texture
     private Texture2D readBackTexture;
 
+    //public Material ColorMaterial;
+    private Color ColorToPaint;
+
+
+    private float PercentageTimerToCount = 1f;
+    private float PercentageTimerCurrentCount = 0f;
+    public float Percentage;
+
+
     void Start()
     {
+        //ColorToPaint = ColorMaterial.color;
+        ColorToPaint = sphere.gameObject.GetComponent<MeshRenderer>().material.color;
         // Assign the render texture to the material
         surfaceMaterial.SetTexture("_PaintTex", paintTexture);
 
@@ -22,21 +33,34 @@ public class SurfacePainter : MonoBehaviour
     void Update()
     {
         PaintUnderSphere();
+
+
+        PercentageTimerCurrentCount += Time.deltaTime;
+        if (PercentageTimerCurrentCount >= PercentageTimerToCount)
+        {
+            Percentage = GetPaintedPercentage();
+            PercentageTimerCurrentCount = 0f;
+        }
     }
 
     void PaintUnderSphere()
     {
+        if (sphere == null)
+        {
+            return;
+        }
         // Convert world position to viewport position
         Vector3 viewportPos = paintCamera.WorldToViewportPoint(sphere.position);
 
-        if (viewportPos.z > 0) // Ensure the sphere is in front of the camera
+        if (viewportPos.z > 0 && viewportPos.z<1) // Ensure the sphere is in front of the camera
         {
             RenderTexture.active = paintTexture;
             GL.PushMatrix();
             GL.LoadPixelMatrix(0, texSize, texSize, 0);
 
             // Set brush color (e.g., red)
-            Color brushColor = new Color(1, 0, 0, 1);
+            //Color brushColor = new Color(1, 0, 0, 1);
+            Color brushColor = ColorToPaint;
             Texture2D tempTex = new Texture2D(1, 1);
             tempTex.SetPixel(0, 0, brushColor);
             tempTex.Apply();
@@ -63,21 +87,26 @@ public class SurfacePainter : MonoBehaviour
 
     public float GetPaintedPercentage()
     {
+        // Ensure the texture dimensions are correct
+        int width = paintTexture.width;
+        int height = paintTexture.height;
+
         // Read pixels from render texture
         RenderTexture.active = paintTexture;
-        readBackTexture.ReadPixels(new Rect(0, 0, texSize, texSize), 0, 0);
+        readBackTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         readBackTexture.Apply();
         RenderTexture.active = null;
 
         // Count non-transparent pixels
         Color[] pixels = readBackTexture.GetPixels();
         int paintedCount = 0;
+
         foreach (Color pixel in pixels)
         {
-            if (pixel.r > 0) // If red channel is painted
+            if (pixel.r > 0.1f) // Threshold to detect paint
                 paintedCount++;
         }
 
-        return (float)paintedCount / pixels.Length * 100f; // Return percentage
+        return (((float)paintedCount / pixels.Length * 100f)-75)*4; // Return percentage
     }
 }

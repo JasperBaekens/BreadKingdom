@@ -45,9 +45,9 @@ public class Movement : MonoBehaviour
         //Rb.MovePosition(new Vector3(transform.position.x + move.x * Time.deltaTime * movementspeed, transform.position.y + 0, transform.position.z + move.y * Time.deltaTime * movementspeed));
         movement = new Vector3(move.x, 0, move.y).normalized;
         //Rb.linearVelocity = movement * Time.fixedDeltaTime * movementspeed;
-        //Rb.MovePosition(transform.position + movement * Time.fixedDeltaTime * movementspeed);
+        Rb.MovePosition(transform.position + movement * Time.fixedDeltaTime * movementspeed);
         //transform.position = new Vector3(transform.position.x + move.x * Time.deltaTime * movementspeed, transform.position.y + 0, transform.position.z + move.y * Time.deltaTime * movementspeed);
-        transform.position = transform.position + movement * Time.fixedDeltaTime * movementspeed;
+        //transform.position = transform.position + movement * Time.fixedDeltaTime * movementspeed;
 
 
 
@@ -56,8 +56,8 @@ public class Movement : MonoBehaviour
         Vector2 rotate = inputActions.Player.Rotate.ReadValue<Vector2>();
         //later with rigidbody
         Vector3 RotationLocal = new Vector3(rotate.y, 0, -rotate.x) * rotationAngleMax;
-        transform.localEulerAngles = RotationLocal;
-
+        //transform.localEulerAngles = RotationLocal;
+        Rb.MoveRotation(Quaternion.Euler(RotationLocal));
         //transform.Rotate((rotate.y * Time.deltaTime * rotationspeed),0, (-rotate.x * Time.fixedDeltaTime * rotationspeed));
 
 
