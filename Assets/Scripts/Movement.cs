@@ -49,9 +49,16 @@ public class Movement : MonoBehaviour
         transform.position = transform.position + movement * Time.fixedDeltaTime * movementspeed;
 
 
-        Vector2 rotate = inputActions.Player.Rotate.ReadValue<Vector2>();        
+
+
+
+        Vector2 rotate = inputActions.Player.Rotate.ReadValue<Vector2>();
         //later with rigidbody
-        transform.Rotate((rotate.y * Time.deltaTime * rotationspeed),0, (-rotate.x * Time.fixedDeltaTime * rotationspeed));
+        Vector3 RotationLocal = new Vector3(rotate.y, 0, -rotate.x) * rotationspeed;
+        transform.localEulerAngles = RotationLocal;
+
+        //transform.Rotate((rotate.y * Time.deltaTime * rotationspeed),0, (-rotate.x * Time.fixedDeltaTime * rotationspeed));
+
 
 
 
