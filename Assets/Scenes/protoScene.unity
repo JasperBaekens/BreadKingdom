@@ -467,7 +467,7 @@ Transform:
   m_GameObject: {fileID: 973434332}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 5.7348776, z: -4.498658}
+  m_LocalPosition: {x: 0, y: 5.73, z: 2.88}
   m_LocalScale: {x: 7.093381, y: 2.591, z: 2.591}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -618,7 +618,6 @@ MonoBehaviour:
   - {fileID: 6456112789981569670, guid: 82efe98653a6f1a4ca5ab5e983921b47, type: 3}
   - {fileID: 2078058063393058303, guid: 23986a02c9ea0774aba2610025586675, type: 3}
   - {fileID: 481561152645250023, guid: 5139bbada176e054491833ef65051024, type: 3}
-  _butter: {fileID: 0}
   _breadPrefabs:
   - {fileID: 2077669490213810996, guid: 65ac89c8ae249ae4882cf53ddc763f92, type: 3}
   - {fileID: 2077669490213810996, guid: c211ef3b235d8a146a841bce29b00758, type: 3}
@@ -631,7 +630,9 @@ MonoBehaviour:
   _ingredientInterval: 1.5
   _spawnRangeX: 18
   _spawnHeight: 20
+  _spawnRangeZ: 18
   _cycleRestartDelay: 2
+  _gridSize: 1
 --- !u!4 &1918623710
 Transform:
   m_ObjectHideFlags: 0

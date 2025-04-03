@@ -105,7 +105,7 @@ public class IngredientsFalling : MonoBehaviour
             Rigidbody rb = ingredient.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                _frozenIngredients.Add(rb); // Store frozen rigidbodies
+                _frozenIngredients.Add(rb); 
             }
 
             ingredient.transform.position = new Vector3(
