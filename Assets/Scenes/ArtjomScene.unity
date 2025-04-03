@@ -42,8 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  serializedVersion: 12
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -155,6 +154,7 @@ MonoBehaviour:
   - {fileID: 6456112789981569670, guid: 82efe98653a6f1a4ca5ab5e983921b47, type: 3}
   - {fileID: 2078058063393058303, guid: 23986a02c9ea0774aba2610025586675, type: 3}
   - {fileID: 481561152645250023, guid: 5139bbada176e054491833ef65051024, type: 3}
+  _butter: {fileID: 0}
   _breadPrefabs:
   - {fileID: 2077669490213810996, guid: 65ac89c8ae249ae4882cf53ddc763f92, type: 3}
   - {fileID: 2077669490213810996, guid: c211ef3b235d8a146a841bce29b00758, type: 3}
@@ -167,9 +167,9 @@ MonoBehaviour:
   _ingredientInterval: 1
   _spawnRangeX: 18
   _spawnHeight: 20
-  _spawnRangeZ: 18
   _cycleRestartDelay: 2
-  _gridSize: 1
+  _Score: 0
+  _gameScreen2: {fileID: 0}
 --- !u!4 &582756424
 Transform:
   m_ObjectHideFlags: 0
@@ -239,6 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1068428868}
   - component: {fileID: 1068428867}
+  - component: {fileID: 1068428869}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -326,6 +327,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1068428869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068428866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1805279596
 GameObject:
   m_ObjectHideFlags: 0
