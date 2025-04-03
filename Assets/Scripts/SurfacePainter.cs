@@ -18,6 +18,7 @@ public class SurfacePainter : MonoBehaviour
     private float PercentageTimerCurrentCount = 0f;
     public float Percentage;
 
+    public GameScreen1 gameScreen1;
 
     void Start()
     {
@@ -40,6 +41,8 @@ public class SurfacePainter : MonoBehaviour
         {
             Percentage = GetPaintedPercentage();
             PercentageTimerCurrentCount = 0f;
+            gameScreen1.UpdateScore((int)(Percentage));
+
         }
     }
 

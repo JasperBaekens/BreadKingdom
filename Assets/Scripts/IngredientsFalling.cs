@@ -20,6 +20,15 @@ public class IngredientsFalling : MonoBehaviour
     private int _currentIngredientCount = 0;
     private bool _spawningFinished = false;
     private GameObject _currentBread;
+
+<<<<<<< Updated upstream
+=======
+    //Jasper MessingWithCodeHere
+    [SerializeField] private int _Score = 0;
+    [SerializeField] private GameScreen2 _gameScreen2;
+
+
+>>>>>>> Stashed changes
     void Start()
     {
         StartCoroutine(SpawnIngredients());
@@ -109,7 +118,7 @@ public class IngredientsFalling : MonoBehaviour
 
             ingredient.transform.position = new Vector3(
                 bread.transform.position.x,
-                currentHeight + 0.1f,
+                currentHeight + 0.075f,
                 bread.transform.position.z
             );
             ingredient.transform.SetParent(bread.transform);
@@ -118,7 +127,7 @@ public class IngredientsFalling : MonoBehaviour
                 ingredient.AddComponent<PermanentFrozen>();
             }
 
-            currentHeight += 0.2f;
+            currentHeight += 0.075f;
         }
 
         yield return new WaitForSeconds(_cycleRestartDelay);
@@ -131,7 +140,12 @@ public class IngredientsFalling : MonoBehaviour
         {
             rb.isKinematic = true;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            //JasperMessingWithCode
+            _Score++;
         }
+        _gameScreen2.AddScore(_Score);
+        _Score = 0;
+
         _frozenIngredients.Clear();
         _spawningFinished = false;
         _currentIngredientCount = 0;
