@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 5366732687138961330}
   - component: {fileID: 7776994208417576093}
   - component: {fileID: 2678445568975944637}
-  - component: {fileID: 5877870196094025342}
   - component: {fileID: 7591590792270723935}
   - component: {fileID: 5161877464474485616}
+  - component: {fileID: 7832466128330966172}
   m_Layer: 0
-  m_Name: StartBread2
-  m_TagString: Bread
+  m_Name: IngredientBred3
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,35 +62,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f5e7b3fbfad4748b9048049e551c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breadName: DarkBread
+  breadName: BrownBread
   preferredIngredients:
   - type: 0
-    pointMultiplier: 1
+    pointMultiplier: 3
   - type: 1
     pointMultiplier: 1
   - type: 2
     pointMultiplier: 2
   - type: 3
-    pointMultiplier: 0
-  - type: 4
-    pointMultiplier: 3
-  - type: 5
     pointMultiplier: 2
---- !u!114 &5877870196094025342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077669490213810996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9ffddd8dab65e49a846341619dfa97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementspeed: 20
-  rotationAngleMax: 45
-  tiltThreshold: 30
+  - type: 4
+    pointMultiplier: 0
+  - type: 5
+    pointMultiplier: 1
 --- !u!65 &7591590792270723935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,11 +119,26 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &7832466128330966172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077669490213810996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac665f10e7e2de64ea831f6c4850fbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heightLimit: -10
+  ingredientType: 6
+  basePoints: 0
 --- !u!1001 &6307317853040765860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c8f4b4987c62e874aad5d1d771ed0066, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1040af558836dd049a96965f57403625, type: 2}
+      objectReference: {fileID: 2100000, guid: 085c9774a08f9474a8c922ca656ca194, type: 2}
     - target: {fileID: 919132149155446097, guid: c8f4b4987c62e874aad5d1d771ed0066, type: 3}
       propertyPath: m_Name
       value: L_Bread

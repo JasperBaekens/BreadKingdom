@@ -20,6 +20,7 @@ public class IngredientsFalling : MonoBehaviour
     private int _currentIngredientCount = 0;
     private bool _spawningFinished = false;
     private GameObject _currentBread;
+
     void Start()
     {
         StartCoroutine(SpawnIngredients());
@@ -109,7 +110,7 @@ public class IngredientsFalling : MonoBehaviour
 
             ingredient.transform.position = new Vector3(
                 bread.transform.position.x,
-                currentHeight + 0.1f,
+                currentHeight + 0.075f,
                 bread.transform.position.z
             );
             ingredient.transform.SetParent(bread.transform);
@@ -118,7 +119,7 @@ public class IngredientsFalling : MonoBehaviour
                 ingredient.AddComponent<PermanentFrozen>();
             }
 
-            currentHeight += 0.2f;
+            currentHeight += 0.075f;
         }
 
         yield return new WaitForSeconds(_cycleRestartDelay);

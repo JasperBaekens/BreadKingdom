@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heightLimit: -10
+  ingredientType: 0
+  basePoints: 10
 --- !u!1 &6456112789981569670
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heightLimit: -10
+  ingredientType: 0
+  basePoints: 100
 --- !u!65 &4548436414223459252
 BoxCollider:
   m_ObjectHideFlags: 0

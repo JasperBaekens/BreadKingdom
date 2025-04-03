@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7591590792270723935}
   - component: {fileID: 5161877464474485616}
   m_Layer: 0
-  m_Name: StartBread2
+  m_Name: StartBread
   m_TagString: Bread
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,20 +62,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f5e7b3fbfad4748b9048049e551c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breadName: DarkBread
+  breadName: WhiteBread
   preferredIngredients:
   - type: 0
-    pointMultiplier: 1
+    pointMultiplier: 2
   - type: 1
-    pointMultiplier: 1
+    pointMultiplier: 3
   - type: 2
     pointMultiplier: 2
   - type: 3
-    pointMultiplier: 0
+    pointMultiplier: 1
   - type: 4
-    pointMultiplier: 3
+    pointMultiplier: 1
   - type: 5
-    pointMultiplier: 2
+    pointMultiplier: 0
 --- !u!114 &5877870196094025342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c8f4b4987c62e874aad5d1d771ed0066, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1040af558836dd049a96965f57403625, type: 2}
+      objectReference: {fileID: 2100000, guid: 567973a8d1608904f9196bd7ba88cdb4, type: 2}
     - target: {fileID: 919132149155446097, guid: c8f4b4987c62e874aad5d1d771ed0066, type: 3}
       propertyPath: m_Name
       value: L_Bread
