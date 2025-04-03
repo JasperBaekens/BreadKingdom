@@ -21,14 +21,11 @@ public class IngredientsFalling : MonoBehaviour
     private bool _spawningFinished = false;
     private GameObject _currentBread;
 
-<<<<<<< Updated upstream
-=======
+
     //Jasper MessingWithCodeHere
     [SerializeField] private int _Score = 0;
     [SerializeField] private GameScreen2 _gameScreen2;
 
-
->>>>>>> Stashed changes
     void Start()
     {
         StartCoroutine(SpawnIngredients());
