@@ -139,8 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heightLimit: -10
-  ingredientType: 3
-  basePoints: 100
 --- !u!54 &-3230060493790368575
 Rigidbody:
   m_ObjectHideFlags: 0
