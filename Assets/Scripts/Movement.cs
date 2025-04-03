@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     private Vector3 movement;
 
 
+
     public float rotationAngleMax = 90f;
 
 
@@ -63,18 +64,18 @@ public class Movement : MonoBehaviour
 
 
 
-        if (inputActions.Player.Hop.triggered)
-        {
-            if (!isJump)
-            {
-                isJump = true;
-                //later with rigidbody
-                transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
+        //if (inputActions.Player.Hop.triggered)
+        //{
+        //    if (!isJump)
+        //    {
+        //        isJump = true;
+        //        //later with rigidbody
+        //        transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
 
-                Debug.Log("Hop");
-            }
+        //        Debug.Log("Hop");
+        //    }
 
-        }
+        //}
 
         if (isJump == true)
         {
