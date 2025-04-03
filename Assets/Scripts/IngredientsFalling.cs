@@ -21,6 +21,14 @@ public class IngredientsFalling : MonoBehaviour
     private bool _spawningFinished = false;
     private GameObject _currentBread;
 
+<<<<<<< Updated upstream
+=======
+    //Jasper MessingWithCodeHere
+    [SerializeField] private int _Score = 0;
+    [SerializeField] private GameScreen2 _gameScreen2;
+
+
+>>>>>>> Stashed changes
     void Start()
     {
         StartCoroutine(SpawnIngredients());
@@ -132,7 +140,12 @@ public class IngredientsFalling : MonoBehaviour
         {
             rb.isKinematic = true;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            //JasperMessingWithCode
+            _Score++;
         }
+        _gameScreen2.AddScore(_Score);
+        _Score = 0;
+
         _frozenIngredients.Clear();
         _spawningFinished = false;
         _currentIngredientCount = 0;
